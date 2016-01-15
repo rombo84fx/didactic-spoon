@@ -47,5 +47,24 @@ namespace BinaryTree
                 }
             }
         }
+
+        public string WalkTree()
+        {
+            string result = "";
+
+            if (this.LeftTree != null)
+            {
+                result = this.LeftTree.WalkTree();
+            }
+
+            result += String.Format(" {0} ", this.NodeData.ToString());
+
+            if (this.RightTree != null)
+            {
+                result += this.RightTree.WalkTree();
+            }
+
+            return result;
+        }
     }
 }
