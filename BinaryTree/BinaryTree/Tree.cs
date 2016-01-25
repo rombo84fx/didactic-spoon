@@ -19,7 +19,7 @@ namespace BinaryTree
             this.LeftTree = null;
             this.RightTree = null;
         }
-
+        
         public void Insert(TItem newItem)
         {
             TItem currentNodeValue = this.NodeData;
@@ -45,6 +45,21 @@ namespace BinaryTree
                 else
                 {
                     this.RightTree.Insert(newItem);
+                }
+            }
+        }
+
+        public void InsertIntoTree(params TItem[] data)
+        {
+            foreach (TItem datum in data)
+            {
+                if (tree == null)
+                {
+                    tree = new Tree<TItem>(datum);
+                }
+                else
+                {
+                    tree.Insert(datum);
                 }
             }
         }
