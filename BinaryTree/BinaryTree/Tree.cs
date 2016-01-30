@@ -78,7 +78,23 @@ namespace BinaryTree
 
         IEnumerator<TItem> IEnumerable<TItem>.GetEnumerator()
         {
-            return new TreeEnumerator<TItem>(this);
+            if (this.LeftTree != null)
+            {
+                foreach (TItem item in this.LeftTree)
+                {
+                    yield return item;
+                }
+            }
+
+            yield return this.NodeData;
+
+            if (this.RightTree != null)
+            {
+                foreach (TItem item in this.RightTree)
+                {
+                    yield return item;
+                }
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
